@@ -3,21 +3,22 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TransferState {
-  private _map = new Map<string, any>();
+  private map: Map<string, any>;
 
   constructor() {
+    this.map = new Map<string, any>();
   }
 
   keys(): any {
-    return this._map.keys();
+    return this.map.keys();
   }
 
   get(key: string): any {
-    return this._map.get(key);
+    return this.map.get(key);
   }
 
   set(key: string, value: any): Map<string, any> {
-    return this._map.set(key, value);
+    return this.map.set(key, value);
   }
 
   toJson(): any {
