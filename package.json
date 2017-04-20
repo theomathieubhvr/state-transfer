@@ -1,10 +1,10 @@
 {
-  "name": "@nglibs/universal-transfer-state",
+  "name": "@ngx-universal/transfer-state",
   "version": "0.0.1-alpha.2",
   "description": "State transferring module for Angular Universal",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nglibs/universal-transfer-state.git"
+    "url": "https://github.com/ngx-universal/transfer-state.git"
   },
   "keywords": [
     "state",
@@ -19,13 +19,13 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nglibs/universal-transfer-state/issues"
+    "url": "https://github.com/ngx-universal/transfer-state/issues"
   },
-  "homepage": "https://github.com/nglibs/universal-transfer-state#readme",
+  "homepage": "https://github.com/ngx-universal/transfer-state#readme",
   "scripts": {
     "test": "karma start"
   },
-  "main": "bundles/universal-transfer-state.umd.min.js",
+  "main": "bundles/transfer-state.umd.min.js",
   "module": "index.js",
   "typings": "index.d.ts",
   "dependencies": {
