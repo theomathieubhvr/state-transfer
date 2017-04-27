@@ -17,7 +17,7 @@ export class ServerStateTransferService extends StateTransferService {
   inject(): void {
     try {
       const document: any = this.platformState.getDocument();
-      const transferStateString = JSON.stringify(this.toJson());
+      const state = JSON.stringify(this.toJson());
       const renderer = this.rendererFactory.createRenderer(document, {
         id: '-1',
         encapsulation: ViewEncapsulation.None,
@@ -32,7 +32,7 @@ export class ServerStateTransferService extends StateTransferService {
         throw new Error('<head> not found in the document');
 
       const script = renderer.createElement('script');
-      renderer.setValue(script, `window['TRANSFER_STATE'] = ${transferStateString}`);
+      renderer.setValue(script, `window['TRANSFER_STATE'] = ${state}`);
       renderer.appendChild(head, script);
     } catch (e) {
       console.error(e);

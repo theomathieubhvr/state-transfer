@@ -11,18 +11,18 @@ export * from './src/state-transfer.service';
 export * from './src/http-transfer.service';
 
 // for AoT compilation
-export function getTransferState(): StateTransferService {
-  const transferState = new StateTransferService();
-  transferState.initialize(window['TRANSFER_STATE'] || {});
+export function stateTransferFactory(): StateTransferService {
+  const stateTransfer = new StateTransferService();
+  stateTransfer.initialize(window['TRANSFER_STATE'] || {});
 
-  return transferState;
+  return stateTransfer;
 }
 
 @NgModule({
   providers: [
     {
       provide: StateTransferService,
-      useFactory: (getTransferState)
+      useFactory: (stateTransferFactory)
     }
   ]
 })

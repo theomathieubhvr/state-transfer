@@ -13,7 +13,7 @@ import { StateTransferService } from './state-transfer.service';
 
 @Injectable()
 export class HttpTransferService {
-  constructor(private http: Http, protected transferState: StateTransferService) {
+  constructor(private http: Http, protected stateTransfer: StateTransferService) {
   }
 
   request(uri: string | Request, options?: RequestOptionsArgs): Observable<any> {
@@ -138,10 +138,10 @@ export class HttpTransferService {
   }
 
   private setCache(key: string, data: any): any {
-    return this.transferState.set(key, data);
+    return this.stateTransfer.set(key, data);
   }
 
   private getFromCache(key: string): any {
-    return this.transferState.get(key);
+    return this.stateTransfer.get(key);
   }
 }
