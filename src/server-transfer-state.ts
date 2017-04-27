@@ -7,7 +7,7 @@ import { TransferState } from './transfer-state';
 
 @Injectable()
 export class ServerTransferState extends TransferState {
-  constructor(private state: PlatformState, private rendererFactory: RendererFactory2) {
+  constructor(private platformState: PlatformState, private rendererFactory: RendererFactory2) {
     super();
   }
 
@@ -16,7 +16,7 @@ export class ServerTransferState extends TransferState {
    */
   inject(): void {
     try {
-      const document: any = this.state.getDocument();
+      const document: any = this.platformState.getDocument();
       const transferStateString = JSON.stringify(this.toJson());
       const renderer = this.rendererFactory.createRenderer(document, {
         id: '-1',
