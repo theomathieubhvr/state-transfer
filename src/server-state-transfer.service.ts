@@ -3,10 +3,10 @@ import { Injectable, RendererFactory2, ViewEncapsulation } from '@angular/core';
 import { PlatformState } from '@angular/platform-server';
 
 // module
-import { TransferState } from './transfer-state';
+import { StateTransferService } from './state-transfer.service';
 
 @Injectable()
-export class ServerTransferState extends TransferState {
+export class ServerStateTransferService extends StateTransferService {
   constructor(private platformState: PlatformState, private rendererFactory: RendererFactory2) {
     super();
   }

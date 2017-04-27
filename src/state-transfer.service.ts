@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class TransferState {
+export class StateTransferService {
   private state: Map<string, any>;
 
   constructor() {
