@@ -19,7 +19,7 @@
     "index.ts",
     "src/http-transfer.service.ts",
     "src/server-state-transfer.service.ts",
-    "src/state-transfer.ts"
+    "src/state-transfer.service.ts"
   ],
   "exclude": [
     "node_modules"
