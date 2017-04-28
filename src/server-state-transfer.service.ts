@@ -16,9 +16,6 @@ export class ServerStateTransferService extends StateTransferService {
     super();
   }
 
-  /**
-   * Inject the State into the bottom of the <head>
-   */
   inject(): void {
     try {
       const document: any = this.platformState.getDocument();
