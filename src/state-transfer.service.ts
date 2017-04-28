@@ -9,10 +9,6 @@ export class StateTransferService {
     this.state = new Map<string, any>();
   }
 
-  // private get keys(): any {
-  //   return this.state.keys();
-  // }
-
   initialize(state: Map<string, any>): void {
     Object.keys(state)
       .forEach(key => {
