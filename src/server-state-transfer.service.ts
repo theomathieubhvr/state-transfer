@@ -1,13 +1,18 @@
 // angular
-import { Injectable, RendererFactory2, ViewEncapsulation } from '@angular/core';
+import { Inject, Injectable, InjectionToken, RendererFactory2, ViewEncapsulation } from '@angular/core';
 import { PlatformState } from '@angular/platform-server';
 
 // module
 import { StateTransferService } from './state-transfer.service';
 
+export const STATE_ID = new InjectionToken<string>('STATE_ID');
+export const DEFAULT_STATE_ID = 'STATE';
+
 @Injectable()
 export class ServerStateTransferService extends StateTransferService {
-  constructor(private platformState: PlatformState, private rendererFactory: RendererFactory2) {
+  constructor(@Inject(STATE_ID) private stateId: string,
+              private platformState: PlatformState,
+              private rendererFactory: RendererFactory2) {
     super();
   }
 
@@ -32,7 +37,7 @@ export class ServerStateTransferService extends StateTransferService {
         throw new Error('<head> not found in the document');
 
       const script = renderer.createElement('script');
-      renderer.setValue(script, `window['TRANSFER_STATE'] = ${state}`);
+      renderer.setValue(script, `window['${this.stateId}'] = ${state}`);
       renderer.appendChild(head, script);
     } catch (e) {
       console.error(e);
